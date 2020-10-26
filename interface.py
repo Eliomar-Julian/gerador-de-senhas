@@ -7,6 +7,9 @@ from tkinter import (
 class GenaratePassWord(Tk):
     def __init__(self):
         super(GenaratePassWord, self).__init__()
+        self.iconbitmap('./img/password.ico')
+        self.title('Gerador de Senha')
+        self.resizable(False, False)
         self.geometry(
             f'''{500}x{400}+{(self.winfo_screenwidth(
             )- 500) // 2}+{(self.winfo_screenheight(
@@ -17,18 +20,20 @@ class GenaratePassWord(Tk):
         self.frame3 = Frame(self)
         self.frame4 = Frame(self)
         
-        self.img_menu = PhotoImage(file='./img/menu.png')
-        self.img_copia = PhotoImage(file='./img/clipboard.png')
-        self.img_play = PhotoImage(file='./img/play.png')
-        self.cadeado = './img/password.ico'
-        self.iconbitmap(self.cadeado)
-        self.img_play_reduzida = self.img_play.subsample(3)
+        self.img_menu   = PhotoImage(file='./img/menu.png')
+        self.img_copia  = PhotoImage(file='./img/clipboard.png')
+        self.img_play   = PhotoImage(file='./img/play.png')
+        self.img_play_reduzida  = self.img_play.subsample(3)
         self.img_copia_reduzida = self.img_copia.subsample(2)
-        self.img_menu_reduzida = self.img_menu.subsample(3)
+        self.img_menu_reduzida  = self.img_menu.subsample(3)
         
-        self.texto = Label(self.frame1, text='Gerador de senhas aleatórias')
-        self.display = Entry(self.frame2, font=('Arial', 15, 'bold'), width=38)
-        self.copiar_bt = Button(
+        self.texto      = Label(
+            self.frame1, text='Gerador de senhas aleatórias'
+        )
+        self.display    = Entry(
+            self.frame2, font=('Arial', 15, 'bold'), width=38
+        )
+        self.copiar_bt  = Button(
             self.frame2,
             relief='solid',
             bd=1,
@@ -58,19 +63,19 @@ class GenaratePassWord(Tk):
             self.frame4,
             text='Opções de Senha'
         )
-        self.alpha_upper = Checkbutton(
+        self.alpha_upper    = Checkbutton(
             self.caixa, text=f'USAR: ABCDEFGHIJKLMNOPQRSTUVWXYZ{" "*75}'
         )
-        self.alpha_lower = Checkbutton(
+        self.alpha_lower    = Checkbutton(
             self.caixa, text='USAR: abcdefghijklmnopqrstuvwxyz'
         )
-        self.alpha_numeric = Checkbutton(
+        self.alpha_numeric  = Checkbutton(
             self.caixa, text='USAR: 0 1 2 3 4 5 6 7 8 9'
         )
-        self.alpha_simbol = Checkbutton(
+        self.alpha_simbol   = Checkbutton(
             self.caixa, text='USAR: !#$%_()*+-/<>=@^~'
         )
-        self.alpha_confuse = Checkbutton(
+        self.alpha_confuse  = Checkbutton(
             self.caixa, text='NAO usar: 1liLI0oO'
         )
         self.info = Label(self.caixa, text='Comprimento da Senha')
