@@ -1,5 +1,5 @@
 from tkinter import (
-    Tk, Label, Button, ttk,
+    Tk, Label, Button, ttk, BooleanVar,
     Entry, PhotoImage, Frame, Checkbutton
 )
 
@@ -15,6 +15,17 @@ class GenaratePassWord(Tk):
             )- 500) // 2}+{(self.winfo_screenheight(
             ) - 500) // 3}'''
         )
+        self.variavel1 = BooleanVar(self)
+        self.variavel1.set(False)
+        self.variavel2 = BooleanVar(self)
+        self.variavel2.set(False)
+        self.variavel3 = BooleanVar(self)
+        self.variavel3.set(False)
+        self.variavel4 = BooleanVar(self)
+        self.variavel4.set(False)
+        self.variavel5 = BooleanVar(self)
+        self.variavel5.set(False)
+
         self.frame1 = Frame(self)
         self.frame2 = Frame(self)
         self.frame3 = Frame(self)
@@ -64,22 +75,37 @@ class GenaratePassWord(Tk):
             text='Opções de Senha'
         )
         self.alpha_upper    = Checkbutton(
-            self.caixa, text=f'USAR: ABCDEFGHIJKLMNOPQRSTUVWXYZ{" "*75}'
+            self.caixa,
+            text=f'USAR: ABCDEFGHIJKLMNOPQRSTUVWXYZ{" "*75}',
+            var=self.variavel1
         )
         self.alpha_lower    = Checkbutton(
-            self.caixa, text='USAR: abcdefghijklmnopqrstuvwxyz'
+            self.caixa,
+            text='USAR: abcdefghijklmnopqrstuvwxyz',
+            var=self.variavel2
         )
         self.alpha_numeric  = Checkbutton(
-            self.caixa, text='USAR: 0 1 2 3 4 5 6 7 8 9'
+            self.caixa, 
+            text='USAR: 0 1 2 3 4 5 6 7 8 9',
+            var=self.variavel3
         )
         self.alpha_simbol   = Checkbutton(
-            self.caixa, text='USAR: !#$%_()*+-/<>=@^~'
+            self.caixa,
+            text='USAR: !#$%_()*+-/<>=@^~',
+            var=self.variavel4
         )
         self.alpha_confuse  = Checkbutton(
-            self.caixa, text='NAO usar: 1liLI0oO'
+            self.caixa,
+            text='NAO usar: 1liLI0oO',
+            var=self.variavel5
         )
         self.info = Label(self.caixa, text='Comprimento da Senha')
-        self.comprimento = ttk.Combobox(self.caixa, values=[8,12,16])
+        self.comprimento = ttk.Combobox(
+            self.caixa,
+            values=[
+                4, 8, 12, 16, 20, 24
+            ]
+        )
         self.comprimento.current(1)
 
         #disposição na tela
@@ -105,8 +131,3 @@ class GenaratePassWord(Tk):
     def copiar(self):
         self.clipboard_clear()
         self.display.clipboard_append(self.display.get())
-
-
-
-if __name__ == '__main__':
-    GenaratePassWord().mainloop()
