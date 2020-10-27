@@ -1,6 +1,7 @@
 from tkinter import (
     Tk, Label, Button, ttk, BooleanVar,
-    Entry, PhotoImage, Frame, Checkbutton
+    Entry, PhotoImage, Frame, Checkbutton,
+    Menubutton
 )
 
 
@@ -60,7 +61,7 @@ class GenaratePassWord(Tk):
             width=250,
             font=('Arial', 12, 'bold')
         )
-        self.botao_menu = Button(
+        self.botao_menu = Menubutton(
             self.frame3,
             text=' MENU ',
             compound='left',
