@@ -105,11 +105,11 @@ def gerador():
         command=lambda:Gerenciador(app)
     )
     menu_bar.add_command(
-        labe='Limpar Tela',
+        labe='Limpar Display',
         command=lambda:app.display.delete(0, 100)
     )
     menu_bar.add_command(
-        label='Adicionar',
+        label='Salvar Senha',
         command=adicionar
     )
     app.botao_menu.config(menu=menu_bar)
