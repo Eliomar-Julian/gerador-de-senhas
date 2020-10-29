@@ -1,4 +1,7 @@
-from tkinter import Toplevel, Button, Entry, END, ttk, messagebox
+from tkinter import (
+    Toplevel, Button, Entry,
+    END, ttk, messagebox
+)
 import sqlite3
 
 
@@ -55,7 +58,7 @@ class Gerenciador(Toplevel):
             title='confirmar',
             message='Tem certeza que quer retirar a senha de %s?' % rm
         )
-        if msg != 'yes':
+        if msg != True:
             return
         conn = sqlite3.connect('./db/banco.db')
         cur = conn.cursor()
